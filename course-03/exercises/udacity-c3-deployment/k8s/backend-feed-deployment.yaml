@@ -31,7 +31,7 @@ spec:
             configMapKeyRef:
               name: env-config
               key: URL
-        - name: AWS_BUCKET
+        - name: AWS_MEDIA_BUCKET
           valueFrom:
             configMapKeyRef:
               name: env-config
@@ -51,7 +51,7 @@ spec:
             configMapKeyRef:
               name: env-config
               key: JWT_SECRET
-        - name: POSTGRES_DB
+        - name: POSTGRES_DATABASE
           valueFrom:
             configMapKeyRef:
               name: env-config
@@ -73,7 +73,7 @@ spec:
               key: POSTGRES_USERNAME      
         volumeMounts:
         - name: aws-secret
-          mountPath: "$HOME/.aws:/root/.aws"
+          mountPath: "/root/.aws"
           readOnly: true        
       restartPolicy: Always
       volumes:
