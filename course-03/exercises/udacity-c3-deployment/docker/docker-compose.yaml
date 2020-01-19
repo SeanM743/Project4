@@ -10,6 +10,8 @@ services:
         - backend-feed     
   backend-user:
     image: smahoney743/udacity-restapi-user
+    volumes:
+      - $HOME/.aws
     environment:
       POSTGRES_USERNAME: $POSTGRES_USERNAME
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD 
@@ -35,6 +37,6 @@ services:
       JWT_SECRET: $JWT_SECRET
       URL: "http://localhost:8100"
   frontend:
-    image: smahoney743/udacity-frontend:local
+    image: smahoney743/frontend:local
     ports:
       - "8100:80"
